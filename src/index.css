@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,12 +12,26 @@
   -moz-osx-font-smoothing: grayscale;
 
   --main-color: #E53935;
+  --black-color: #242424;
 }
 
+html, body {
+  height: 100%;
+  background-color: #fff;
+}
 
 body {
   margin: 0;
   width: 100%;
   box-sizing: border-box;
+}
+
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }
 

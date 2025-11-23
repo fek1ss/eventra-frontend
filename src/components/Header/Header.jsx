@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import logo from '/assets/IconEventra.png';
 import { FaUser } from 'react-icons/fa';
 
 const Header = () => {
+  const navigate = useNavigate();
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -33,8 +35,8 @@ const Header = () => {
         <div className={styles.header__actions}>
           <a className={styles.search__link}>🔍</a>
           <FaUser size={20} color="#E53935" />;
-          <button className={styles.login__btn}>Login</button>
-          <button className={styles.register__btn}>Register</button>
+          <button className={styles.login__btn} onClick={()=> navigate('/login')}>Login</button>
+          <button className={styles.register__btn} onClick={()=> navigate('/register')}>Register</button>
         </div>
       </div>
     </header>
