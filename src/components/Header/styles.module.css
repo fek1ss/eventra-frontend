@@ -1,0 +1,78 @@
+.header {
+  position: sticky; /* Делает хедер фиксированным при скролле */
+  top: 0;
+  z-index: 1000; /* Гарантирует, что хедер будет поверх другого контента */
+  max-width: 100%;
+  
+  background-color: white; /* Фон хедера */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__logo h1 {
+  font-size: 24px;
+  color: var(--main-color);
+}
+
+.logo__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--main-color); /* Цвет Eventra */
+}
+
+.logo__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: var(--main-color);
+  font-size: 16px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.login__btn {
+  background-color: var(--main-color);
+  border-radius: 8px;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.register__btn {
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  background: none;
+  color: var(--main-color);
+}
