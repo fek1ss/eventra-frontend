@@ -8,15 +8,25 @@
   gap: 1rem;
   background-color: white;
   border-radius: 14px;
-  width: 350px;
+  width: 370px;
   height: auto;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
   padding: 0;
+  transition: top .4s ease, box-shadow .4s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  top: -10px;
+  transition: .4s;
+  box-shadow: 0 25px 35px rgba(0, 0, 0, 0.05);
 }
 
 .image__container {
   margin: 0;
   width: 100%;
+  overflow: hidden;
+  border-radius: 14px 14px 0 0;
 }
 
 .price {
@@ -34,6 +44,11 @@
   height: 250px;
   object-fit: cover;
   border-radius: 14px 14px 0 0;
+  transition: transform .5s ease;
+}
+
+.card:hover .img__card {
+  transform: scale(1.15);
 }
 
 .info {
@@ -66,7 +81,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #4A5565;
+  color: var(--grey-color);
   margin: 0;
 }
 

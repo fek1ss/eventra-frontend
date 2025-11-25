@@ -1,21 +1,22 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 450px;
-  height: auto;
+  height: 600px;
+  overflow: hidden;
 }
 
 .banner {
-  min-height: 400px;
-  width: 100%;
+  object-fit: cover;
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: auto; 
   position: relative;
 }
 
 .img__banner {
   width: 100%;
-  height: auto;
+  height: 100%;
   background: cover;
 }
 
@@ -58,9 +59,14 @@
 }
 
 .title__event {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: bold;
   margin: 0;
+  width: 50%;
+}
+
+.text {
+  width: 50%;
 }
 
 .info {
@@ -86,4 +92,5 @@
   border: none;
   border-radius: 8px;
   padding: 0.5rem 1rem;
+  cursor: pointer;
 }

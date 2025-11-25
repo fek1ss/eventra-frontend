@@ -2,49 +2,75 @@ import styles from './styles.module.css';
 import EventCard from './../EventCard/EventCard';
 import { useEffect, useState } from 'react';
 import { getEvents } from '../../services/eventService';
+import Organizations from '../Organizations/Organizations';
 
 const ListCards = () => {
   const [events, setEvents] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(6);
 
-  const parseDate = dateStr => {
-    if (!dateStr) return null;
-
-    // если формат 'DD.MM.YYYY'
-    if (dateStr.includes('.')) {
-      const [day, month, year] = dateStr.split('.');
-      return `${year}-${month}-${day}`;
-    }
-
-    return dateStr; // предполагаем, что уже 'YYYY-MM-DD'
+  const showMore = () => {
+    setVisibleCount(events.length);
   };
+
+  const showLess = () => {
+    setVisibleCount(6);
+  };
+
   useEffect(() => {
     getEvents().then(events => {
       const sorted = [...events].sort((a, b) => {
-        const timeA = a.time || '00:00:00';
-        const timeB = b.time || '00:00:00';
+        const [hoursA, minutesA, secondsA] = (a.time || '00:00:00')
+          .split(':')
+          .map(Number);
+        const [hoursB, minutesB, secondsB] = (b.time || '00:00:00')
+          .split(':')
+          .map(Number);
 
-        const dateA = new Date(`${parseDate(a.date)}T${timeA}`);
-        const dateB = new Date(`${parseDate(b.date)}T${timeB}`);
+        const dateA = new Date(a.date);
+        dateA.setHours(hoursA, minutesA, secondsA);
 
-        return dateA - dateB; // ближайшие события первыми
+        const dateB = new Date(b.date);
+        dateB.setHours(hoursB, minutesB, secondsB);
+
+        return dateA - dateB;
       });
       setEvents(sorted);
     });
   }, []);
 
   return (
-    <div className={styles.list}>
-      {events.map(event => (
-        <EventCard
-          key={event.id}
-          title={event.title}
-          img={event.image}
-          category={event.category}
-          date={event.date}
-          location={event.location}
-          price={event.price}
-        />
-      ))}
+    <div className={styles.comming}>
+      <section className={styles.container}>
+        <div className={styles.popular}>
+          <h1 className={styles.title}>Coming Soon</h1>
+          <p className={styles.text}>
+            Mark your calendar for these upcoming events
+          </p>
+        </div>
+        {visibleCount !== 6 ? (
+          <p onClick={showLess} className={styles.view}>
+            view less
+          </p>
+        ) : (
+          <p onClick={showMore} className={styles.view}>
+            view all
+          </p>
+        )}
+      </section>
+      <div className={styles.list}>
+        {events.slice(0, visibleCount).map(event => (
+          <EventCard
+            key={event.id}
+            title={event.title}
+            img={event.image}
+            category={event.category}
+            date={event.date}
+            location={event.location}
+            price={event.price}
+          />
+        ))}
+      </div>
+      <Organizations events={events} />
     </div>
   );
 };

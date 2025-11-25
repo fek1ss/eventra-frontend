@@ -3,6 +3,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/auth/login';
 import Register from './pages/auth/Register';
 import Admin from './pages/AdminPage/Admin';
+import Event from './pages/Event/Event';
 
 function App() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -17,6 +18,7 @@ function App() {
           {user?.role === 'admin' && (
             <Route path="/admin" element={<Admin />} />
           )}
+          <Route path="/event" element={<Event />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -25,7 +25,7 @@ const Header = () => {
             Home
           </a>
           <a href="/events" className={styles.nav__link}>
-            Events
+            Organizations
           </a>
           <a href="/categories" className={styles.nav__link}>
             Categories

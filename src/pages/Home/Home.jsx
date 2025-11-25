@@ -20,7 +20,6 @@ const Home = () => {
       <Header />
       <Hero />
       <Search />
-      dasfnjksa
       <ListCards />
     </div>
   )

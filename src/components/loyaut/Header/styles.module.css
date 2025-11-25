@@ -3,7 +3,6 @@
   top: 0;
   z-index: 1000; /* Гарантирует, что хедер будет поверх другого контента */
   max-width: 100%;
-
   background-color: white; /* Фон хедера */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
