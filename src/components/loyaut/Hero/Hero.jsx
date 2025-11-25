@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import styles from './styles.module.css';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { getLatestEvent } from './../../services/eventService';
+import { getLatestEvent } from '../../../services/eventService';
+import { formatDate } from '../../utils/formatDate';
 
 const Hero = () => {
   const [event, setEvent] = useState(null);
@@ -52,23 +53,17 @@ const Hero = () => {
     );
   }
 
-  const formatDate = dateString => {
-    const date = new Date(dateString);
-    const options = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-    };
-    return date.toLocaleDateString('en-US', options);
-  };
 
   return (
     <div className={styles.hero}>
       <div className={styles.banner}>
         <div className={styles.black}></div>
-        <img src={event.image} alt="banner" />
+        <img className={styles.img__banner} src={`${event.image === null ? '/assets/Container.png' : event.image}`} alt="banner" />
       </div>
       <div className={styles.wrapper}>
+        <span className={styles.tag}>
+          {event.category}
+        </span>
         <h1 className={styles.title__event}>{event.title}</h1>
         <div className={styles.info}>
           <span className={styles.info__item}>

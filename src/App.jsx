@@ -2,8 +2,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home/Home';
 import Login from './pages/auth/login';
 import Register from './pages/auth/Register';
+import Admin from './pages/AdminPage/Admin';
 
 function App() {
+  const user = JSON.parse(localStorage.getItem('user'));
+
   return (
     <>
       <BrowserRouter>
@@ -11,6 +14,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          {user?.role === 'admin' && (
+            <Route path="/admin" element={<Admin />} />
+          )}
         </Routes>
       </BrowserRouter>
     </>

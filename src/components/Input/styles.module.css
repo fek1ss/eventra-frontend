@@ -1,6 +1,5 @@
 .input_container {
   position: relative;
-  font-family: BlinkMacSystemFont;
 }
 
 .label {
@@ -25,6 +24,17 @@
   padding: 0.5rem 1rem;
 }
 
+.inpArea {
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  background-color: transparent;
+  width: 200px;
+  min-height: 100px;
+  height: auto;
+  color: var(--black-color);
+  padding: 0.5rem 1rem;
+}
+
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
   -webkit-text-fill-color: #000 !important;
@@ -45,3 +55,5 @@ input:-webkit-autofill {
 .inp:focus + .label {
   color: var(--main-color);
 }
+
+

@@ -8,7 +8,7 @@ import Input from '../../components/Input/Input';
 const Register = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
-    firs_name: '',
+    first_name: '',
     last_name: '',
     email: '',
     password: '',
@@ -19,20 +19,26 @@ const Register = () => {
   const handleRegister = async e => {
     e.preventDefault();
 
-    if (!userData.email || !userData.password || !userData.firs_name || !userData.last_name) {
+    if (
+      !userData.email ||
+      !userData.password ||
+      !userData.first_name ||
+      !userData.last_name
+    ) {
       showMessage('fill in all the fields', true);
       return;
     }
 
     try {
-      const data = await registerUser(userData.firs_name, userData.last_name, userData.email, userData.password);
+      const data = await registerUser(
+        userData.first_name,
+        userData.last_name,
+        userData.email,
+        userData.password,
+      );
 
-      if (data.token) {
+      if (data.message === 'Пользователь успешно зарегистрирован') {
         navigate('/');
-        setUserData({
-          email: '',
-          password: '',
-        });
       }
     } catch (err) {
       showMessage(`${err}`, true);
@@ -44,11 +50,11 @@ const Register = () => {
       <form onSubmit={handleRegister} className={styles.form}>
         <Input
           name="firstName"
-          value={userData.firs_name}
+          value={userData.first_name}
           label="first name"
           type="text"
           onChange={val =>
-            setUserData(prev => ({ ...prev, firs_name: val }))
+            setUserData(prev => ({ ...prev, first_name: val }))
           }
         />
         <Input
@@ -86,6 +92,19 @@ const Register = () => {
             {message?.text}
           </p>
         )}
+
+        <div className={styles.container}>
+          <div className={styles.auth__line}></div>
+          <p className={styles.auth__loginHead}>
+            Already have an acoount?
+          </p>
+          <a
+            className={styles.otherAuth}
+            onClick={() => navigate('/login')}
+          >
+            Login
+          </a>
+        </div>
       </form>
     </div>
   );

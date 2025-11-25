@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa';
 
 const SearchEngine = () => {
   return (
-    <div className={styles.search}>
+    <section className={styles.search} id='search'>
       <div className={styles.container}>
         <FaSearch size={20} color="#99A1AF" />
         <input className={styles.inp} type="text" />
@@ -12,7 +12,7 @@ const SearchEngine = () => {
         <FaSearch size={20} color="#fff" />
         Search
       </button>
-    </div>
+    </section>
   );
 };
 

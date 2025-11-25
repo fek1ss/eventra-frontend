@@ -1,10 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import logo from '/assets/IconEventra.png';
-import { FaUser } from 'react-icons/fa';
+import { IoMdSearch, IoMdPerson } from 'react-icons/io';
 
 const Header = () => {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user'));
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -31,12 +33,37 @@ const Header = () => {
           <a href="/contacts" className={styles.nav__link}>
             Contacts
           </a>
+          {user?.role === 'admin' && (
+            <a className={styles.nav__link} href="/admin">
+              Admin
+            </a>
+          )}
         </nav>
         <div className={styles.header__actions}>
-          <a className={styles.search__link}>🔍</a>
-          <FaUser size={20} color="#E53935" />;
-          <button className={styles.login__btn} onClick={()=> navigate('/login')}>Login</button>
-          <button className={styles.register__btn} onClick={()=> navigate('/register')}>Register</button>
+          <a className={styles.iconLink} href="#search">
+            <IoMdSearch className={styles.icon} />
+          </a>
+          <a className={styles.iconLink} href="#search">
+            <IoMdPerson
+              className={styles.icon}
+              onClick={() => navigate('/profile')}
+              size={20}
+              color="#242424"
+            />
+          </a>
+          ;
+          <button
+            className={styles.login__btn}
+            onClick={() => navigate('/login')}
+          >
+            Login
+          </button>
+          <button
+            className={styles.register__btn}
+            onClick={() => navigate('/register')}
+          >
+            Register
+          </button>
         </div>
       </div>
     </header>

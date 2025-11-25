@@ -1,0 +1,28 @@
+.adminPage {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.adminSection {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
+
+.back {
+  cursor: pointer;
+}
+
+.title {
+  color: var(--main-color);
+  text-align: start;
+  margin: 0;
+}
+

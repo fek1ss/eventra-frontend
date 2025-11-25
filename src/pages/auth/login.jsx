@@ -22,17 +22,9 @@ const Login = () => {
       return;
     }
 
-
     try {
-      const data = await loginUser(userData.email, userData.password);
-
-      if (data.token) {
-        navigate('/');
-        setUserData({
-          email: '',
-          password: '',
-        });
-      }
+      await loginUser(userData.email, userData.password);
+      navigate('/');
     } catch (err) {
       showMessage(`${err}`, true);
     }
@@ -68,6 +60,18 @@ const Login = () => {
             {message?.text}
           </p>
         )}
+        <div className={styles.container}>
+          <div className={styles.auth__line}></div>
+          <p className={styles.auth__loginHead}>
+            If you don't have an account
+          </p>
+          <a
+            className={styles.otherAuth}
+            onClick={() => navigate('/register')}
+          >
+            Create an account
+          </a>
+        </div>
       </form>
     </div>
   );
