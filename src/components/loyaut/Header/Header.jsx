@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
-import logo from '/assets/IconEventra.png';
+import logo from '/assets/eventra_logo.png';
 import { IoMdSearch, IoMdPerson } from 'react-icons/io';
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
           <a href="/" className={styles.nav__link}>
             Home
           </a>
-          <a href="/events" className={styles.nav__link}>
+          <a href="#organizations" className={styles.nav__link}>
             Organizations
           </a>
           <a href="/categories" className={styles.nav__link}>

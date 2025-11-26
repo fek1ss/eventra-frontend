@@ -17,25 +17,7 @@ const ListCards = () => {
   };
 
   useEffect(() => {
-    getEvents().then(events => {
-      const sorted = [...events].sort((a, b) => {
-        const [hoursA, minutesA, secondsA] = (a.time || '00:00:00')
-          .split(':')
-          .map(Number);
-        const [hoursB, minutesB, secondsB] = (b.time || '00:00:00')
-          .split(':')
-          .map(Number);
-
-        const dateA = new Date(a.date);
-        dateA.setHours(hoursA, minutesA, secondsA);
-
-        const dateB = new Date(b.date);
-        dateB.setHours(hoursB, minutesB, secondsB);
-
-        return dateA - dateB;
-      });
-      setEvents(sorted);
-    });
+    getEvents().then(data => setEvents(data));
   }, []);
 
   return (
@@ -59,15 +41,7 @@ const ListCards = () => {
       </section>
       <div className={styles.list}>
         {events.slice(0, visibleCount).map(event => (
-          <EventCard
-            key={event.id}
-            title={event.title}
-            img={event.image}
-            category={event.category}
-            date={event.date}
-            location={event.location}
-            price={event.price}
-          />
+          <EventCard key={event.id} event={event} />
         ))}
       </div>
       <Organizations events={events} />

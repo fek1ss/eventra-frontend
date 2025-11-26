@@ -50,13 +50,6 @@
   );
 }
 
-.tag {
-  margin-bottom: 2rem;
-  background-color: var(--main-color);
-  color: white;
-  padding: 0 10px;
-  border-radius: 8px;
-}
 
 .title__event {
   font-size: 32px;

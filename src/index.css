@@ -5,13 +5,13 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: white;
+  background-color: #f9fafb;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --main-color: #E53935;
+  --main-color: #a92225;
   --black-color: #242424;
   --grey-color: #4A5565;
 }
@@ -39,5 +39,20 @@ body {
   color: red;
   margin: 0;
   padding: 0;
+}
+
+.back {
+  cursor: pointer;
+  font-size: 14px;
+  padding: 3px 0.5rem;
+  border-radius: 5px;
+  color: white;
+  transition: .4s ease
+}
+
+.back:hover {
+  color: black;
+  background-color: #5c6065;
+  transition: .4s ease;
 }
 

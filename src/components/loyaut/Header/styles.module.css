@@ -1,8 +1,8 @@
 .header {
-  position: sticky; /* Делает хедер фиксированным при скролле */
+  position: fixed;
   top: 0;
-  z-index: 1000; /* Гарантирует, что хедер будет поверх другого контента */
-  max-width: 100%;
+  z-index: 1000; 
+  width: 100%;
   background-color: white; /* Фон хедера */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
@@ -38,8 +38,7 @@
 }
 
 .logo__icon {
-  width: 24px;
-  height: 24px;
+  width: 80%;
 }
 
 .header__nav {

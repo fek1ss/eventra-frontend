@@ -18,7 +18,7 @@ function App() {
           {user?.role === 'admin' && (
             <Route path="/admin" element={<Admin />} />
           )}
-          <Route path="/event" element={<Event />} />
+          <Route path="/event/:id" element={<Event />} />
         </Routes>
       </BrowserRouter>
     </>
