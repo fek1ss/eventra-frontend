@@ -5,19 +5,16 @@
   overflow: hidden;
 }
 
-.banner {
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: auto; 
-  position: relative;
-}
+
 
 .img__banner {
+  position: absolute; /* чтобы растянуть на весь контейнер */
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: cover;
+  object-fit: cover; /* сохраняет пропорции и обрезает лишнее */
+  z-index: 0;
 }
 
 .wrapper {
@@ -49,7 +46,6 @@
       /* Заканчиваем полностью прозрачным черным вверху */
   );
 }
-
 
 .title__event {
   font-size: 32px;

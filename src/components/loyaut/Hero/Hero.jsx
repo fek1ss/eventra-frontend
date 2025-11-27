@@ -6,7 +6,7 @@ const Hero = () => {
         <div className={styles.black}></div>
         <img
           className={styles.img__banner}
-          src="/assets/Container.png"
+          src="/assets/image.png"
           alt="banner"
         />
       <div className={styles.wrapper}>

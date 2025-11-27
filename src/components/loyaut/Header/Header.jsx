@@ -75,7 +75,7 @@ const Header = () => {
             </button>
           </div>
             ) : (
-              <button onClick={handleLogout}>
+              <button onClick={handleLogout} className={styles.logout}>
                 logout
               </button>
             )

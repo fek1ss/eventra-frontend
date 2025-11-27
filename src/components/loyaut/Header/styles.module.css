@@ -105,3 +105,12 @@
   color: var(--main-color);
   cursor: pointer;
 }
+
+.logout {
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  background-color: var(--grey-color);
+}
