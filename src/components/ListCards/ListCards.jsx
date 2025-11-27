@@ -3,10 +3,16 @@ import EventCard from './../EventCard/EventCard';
 import { useEffect, useState } from 'react';
 import { getEvents } from '../../services/eventService';
 import Organizations from '../Organizations/Organizations';
+import SearchEngine from './../SearchEngine/SearchEngine';
 
 const ListCards = () => {
   const [events, setEvents] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
+  const [query, setQuery] = useState('');
+
+  const filteredEvents = events.filter(event =>
+    (event.title || '').toLowerCase().includes((query || '').toLowerCase())
+  );
 
   const showMore = () => {
     setVisibleCount(events.length);
@@ -22,6 +28,7 @@ const ListCards = () => {
 
   return (
     <div className={styles.comming}>
+      <SearchEngine query={query} setQuery={setQuery} />
       <section className={styles.container}>
         <div className={styles.popular}>
           <h1 className={styles.title}>Coming Soon</h1>
@@ -40,7 +47,7 @@ const ListCards = () => {
         )}
       </section>
       <div className={styles.list}>
-        {events.slice(0, visibleCount).map(event => (
+        {filteredEvents.slice(0, visibleCount).map(event => (
           <EventCard key={event.id} event={event} />
         ))}
       </div>

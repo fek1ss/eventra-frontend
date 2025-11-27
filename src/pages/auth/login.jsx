@@ -11,7 +11,7 @@ const Login = () => {
     email: '',
     password: '',
   });
-
+  const [showPassword, setShowPassword] = useState(false);
   const { message, showMessage } = useMessage();
 
   const handleLogin = async e => {
@@ -43,15 +43,24 @@ const Login = () => {
             setUserData(prev => ({ ...prev, email: val }))
           }
         />
-        <Input
-          name="password"
-          value={userData.password}
-          label="password"
-          type="password"
-          onChange={val =>
-            setUserData(prev => ({ ...prev, password: val }))
-          }
-        />
+        <div>
+          <Input
+            name="password"
+            value={userData.password}
+            label="password"
+            type={showPassword ? 'text' : 'password'}
+            onChange={val =>
+              setUserData(prev => ({ ...prev, password: val }))
+            }
+          />
+          <button
+            type="button"
+            className={styles.showPasswordBtn}
+            onClick={() => setShowPassword(prev => !prev)}
+          >
+            {showPassword ? 'Hide' : 'Show'}
+          </button>
+        </div>
         <button type="submit" className={styles.btn}>
           Login
         </button>

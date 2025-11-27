@@ -65,3 +65,10 @@
   color: #4492e6;
   margin: 0;
 }
+
+.showPasswordBtn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: rgb(83, 83, 83);
+}

@@ -27,7 +27,7 @@ const Organizations = ({ events }) => {
       </div>
       <div className={styles.orgs}>
         {events.slice(0,visibleCount).map(event => (
-          <div className={styles.org}>{event.organization}</div>
+          <div className={styles.org} key={event.id}>{event.organization}</div>
         ))}
       </div>
     </section>

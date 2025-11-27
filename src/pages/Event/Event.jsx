@@ -8,13 +8,15 @@ import Footer from './../../components/loyaut/Footer/Footer';
 const Event = () => {
   const { state } = useLocation();
 
-  if (!state) return <p>No data</p>; 
+  if (!state) return <p>No data</p>;
 
   return (
     <div className={styles.eventPage}>
       <Header />
-      <HeroEvent event={state} />
-      <AboutEvent event={state} />
+      <div className={styles.mainContent}>
+        <HeroEvent event={state} />
+        <AboutEvent event={state} />
+      </div>
       <Footer />
     </div>
   );
