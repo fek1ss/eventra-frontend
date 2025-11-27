@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { formatDate } from './../../utils/formatDate';
+import { IoIosArrowBack } from 'react-icons/io';
 
 const HeroEvent = ({event}) => {
   const navigate = useNavigate('/')
@@ -16,9 +17,11 @@ const HeroEvent = ({event}) => {
         alt="banner"
       />
       <div className={styles.container}>
-        <p className="back" onClick={() => navigate(-1)}>
+        
+        <span className="back" onClick={() => navigate(-1)}>
+          <IoIosArrowBack size={24} color="#a92225" />
           Back to Events
-        </p>
+        </span>
 
         <div className={styles.heading}>
           <span className={styles.tag}>{event.category}</span>

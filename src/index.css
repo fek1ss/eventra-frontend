@@ -43,17 +43,19 @@ body {
 }
 
 .back {
+  display: flex;
+  align-items: center;
   cursor: pointer;
   font-size: 14px;
   padding: 3px 0.5rem;
   border-radius: 5px;
-  color: white;
-  transition: .4s ease
+  color: var(--main-color);
+  transition: .4s ease;
+  font-weight: bold;
 }
 
 .back:hover {
-  color: black;
-  background-color: #5c6065;
+  background-color: #f1b3b2;
   transition: .4s ease;
 }
 
