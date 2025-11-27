@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import { getEvents } from '../../services/eventService';
 import Organizations from '../Organizations/Organizations';
 import SearchEngine from './../SearchEngine/SearchEngine';
+import Filter from './../Filter/Filter';
 
 const ListCards = () => {
   const [events, setEvents] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
   const [query, setQuery] = useState('');
+  const [category, setCategory] = useState("");
 
   const filteredEvents = events.filter(event =>
     (event.title || '').toLowerCase().includes((query || '').toLowerCase())
@@ -23,12 +25,13 @@ const ListCards = () => {
   };
 
   useEffect(() => {
-    getEvents().then(data => setEvents(data));
-  }, []);
+    getEvents(category).then(data => setEvents(data));
+  }, [category]);
 
   return (
     <div className={styles.comming}>
       <SearchEngine query={query} setQuery={setQuery} />
+      <Filter setCategory={setCategory} />
       <section className={styles.container}>
         <div className={styles.popular}>
           <h1 className={styles.title}>Coming Soon</h1>

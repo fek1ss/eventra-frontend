@@ -1,0 +1,13 @@
+.section__filter {
+  width: 90%;
+  margin-top: 1rem;
+}
+
+.filter {
+  background-color: var(--main-color);
+  padding: 0.5rem 1rem;
+  width: 100px;
+  position: relative;
+  border-radius: 8px;
+}
+
