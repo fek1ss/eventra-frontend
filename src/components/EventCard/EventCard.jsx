@@ -34,7 +34,11 @@ const EventCard = ({ event }) => {
           <FaMapMarkerAlt size={10} color="#4A5565" />
           <p className={styles.date}>{event.location}</p>
         </div>
-        <button className={styles.btn}>Registration</button>
+        <button
+          className={styles.btn}
+        >
+          Registration
+        </button>
       </section>
     </div>
   );

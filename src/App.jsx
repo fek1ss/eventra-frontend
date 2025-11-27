@@ -9,7 +9,7 @@ function App() {
   const user = JSON.parse(localStorage.getItem('user'));
 
   return (
-    <>
+    <div className='app'>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,7 +21,7 @@ function App() {
           <Route path="/event/:id" element={<Event />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 }
 

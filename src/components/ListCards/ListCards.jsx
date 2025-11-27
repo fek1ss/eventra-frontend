@@ -8,12 +8,15 @@ import Filter from './../Filter/Filter';
 
 const ListCards = () => {
   const [events, setEvents] = useState([]);
+
   const [visibleCount, setVisibleCount] = useState(6);
   const [query, setQuery] = useState('');
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState('');
 
   const filteredEvents = events.filter(event =>
-    (event.title || '').toLowerCase().includes((query || '').toLowerCase())
+    (event.title || '')
+      .toLowerCase()
+      .includes((query || '').toLowerCase()),
   );
 
   const showMore = () => {
@@ -51,7 +54,10 @@ const ListCards = () => {
       </section>
       <div className={styles.list}>
         {filteredEvents.slice(0, visibleCount).map(event => (
-          <EventCard key={event.id} event={event} />
+          <EventCard
+            key={event.id}
+            event={event}
+          />
         ))}
       </div>
       <Organizations events={events} />

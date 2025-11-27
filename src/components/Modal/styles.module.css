@@ -1,0 +1,61 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* на всю ширину экрана */
+  height: 100vh; /* на всю высоту экрана */
+  background-color: rgba(0, 0, 0, 0.5); /* затемнение фона */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  position: relative;
+  z-index: 1000;
+  height: auto;
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  color: black;
+  background-color: white;
+  padding: 2rem;
+  max-width: 500px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.heading {
+}
+
+.title {
+  color: black;
+  margin: 0;
+  font-size: 23px;
+}
+
+.text {
+  color: var(--grey-color);
+  margin: 0;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--main-color);
+  color: white;
+  min-width: 150px;
+  font-size: 18px;
+  margin-top: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}

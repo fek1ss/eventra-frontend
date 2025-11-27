@@ -6,7 +6,6 @@
 }
 
 
-
 .img__banner {
   position: absolute; /* чтобы растянуть на весь контейнер */
   top: 0;
@@ -82,4 +81,10 @@
   border-radius: 8px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+
+.link {
+  text-decoration: none;
+  color: white;
 }

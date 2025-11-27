@@ -18,7 +18,7 @@ const Hero = () => {
           друзей и живи университетской жизнью ярче вместе с Eventra
         </p>
         <button className={styles.btn__buy}>
-          <a href="#search">Start Now</a>
+          <a href="#search" className={styles.link}>Start Now</a>
         </button>
       </div>
     </div>
