@@ -53,7 +53,7 @@ const Header = () => {
           </a>
           ;
           {
-            user ? (
+            user?.token ? (
               <div className={styles.auth}>
             <button
               className={styles.login__btn}
