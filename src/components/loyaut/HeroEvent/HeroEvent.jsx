@@ -13,7 +13,7 @@ const HeroEvent = ({event}) => {
       <div className={styles.black}></div>
       <img
         className={styles.img__banner}
-        src={event.image}
+        src={event.image ? event.image : "/assets/banner.jpg"}
         alt="banner"
       />
       <div className={styles.container}>
