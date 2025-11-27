@@ -2,10 +2,16 @@ import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import logo from '/assets/eventra_logo.png';
 import { IoMdSearch, IoMdPerson } from 'react-icons/io';
+import { logoutUser } from '../../../services/authService';
 
 const Header = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
+
+  const handleLogout = async() => {
+    await logoutUser();
+    navigate('/login')
+  }
 
   return (
     <header className={styles.header}>
@@ -69,7 +75,7 @@ const Header = () => {
             </button>
           </div>
             ) : (
-              <button>
+              <button onClick={handleLogout}>
                 logout
               </button>
             )
