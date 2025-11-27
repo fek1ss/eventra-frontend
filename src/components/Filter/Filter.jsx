@@ -19,7 +19,7 @@ const Filter = ({ setCategory }) => {
         <option value="Концерт" className={styles.option}>
           Концерт
         </option>
-        <option value="Музыка" className={styles.option}>
+        <option value="мастеркласс" className={styles.option}>
           мастеркласс
         </option>
         <option value="Мероприятие" className={styles.option}>
