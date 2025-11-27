@@ -2,9 +2,11 @@ import styles from './styles.module.css';
 import { FaRegClock } from 'react-icons/fa';
 import { IoMdPin } from 'react-icons/io';
 import { FaDollarSign } from 'react-icons/fa';
+// import { useState } from 'react';
 
 
-const AboutEvent = ({ event }) => {
+const AboutEvent = ({ event, setModal }) => {
+
   return (
     <div className={styles.about}>
       <div className={styles.wrapper}>
@@ -32,9 +34,10 @@ const AboutEvent = ({ event }) => {
         </span>
       </div>
 
-      <button className={styles.btn}>
+      <button className={styles.btn} onClick={()=>setModal(true)}>
         Зарегестрироваться на мероприятие
       </button>
+
     </div>
   );
 };

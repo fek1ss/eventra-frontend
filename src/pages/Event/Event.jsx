@@ -4,6 +4,7 @@ import HeroEvent from './../../components/loyaut/HeroEvent/HeroEvent';
 import { useLocation } from 'react-router-dom';
 import AboutEvent from './../../components/loyaut/AboutEvent/AboutEvent';
 import Footer from './../../components/loyaut/Footer/Footer';
+import Modal from './../../components/Modal/Modal';
 
 const Event = () => {
   const { state } = useLocation();
@@ -16,6 +17,7 @@ const Event = () => {
       <div className={styles.mainContent}>
         <HeroEvent event={state} />
         <AboutEvent event={state} />
+        <Modal />
       </div>
       <Footer />
     </div>

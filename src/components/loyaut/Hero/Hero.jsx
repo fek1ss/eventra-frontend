@@ -6,7 +6,7 @@ const Hero = () => {
         <div className={styles.black}></div>
         <img
           className={styles.img__banner}
-          src="/assets/image.png"
+          src="/assets/banner.jpg"
           alt="banner"
         />
       <div className={styles.wrapper}>
@@ -17,7 +17,9 @@ const Hero = () => {
           Открывай новые возможности кампуса, находи события, собирай
           друзей и живи университетской жизнью ярче вместе с Eventra
         </p>
-        <button className={styles.btn__buy}>Start Now</button>
+        <button className={styles.btn__buy}>
+          <a href="#search">Start Now</a>
+        </button>
       </div>
     </div>
   );
