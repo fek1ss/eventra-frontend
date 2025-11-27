@@ -52,18 +52,28 @@ const Header = () => {
             />
           </a>
           ;
-          <button
-            className={styles.login__btn}
-            onClick={() => navigate('/login')}
-          >
-            Login
-          </button>
-          <button
-            className={styles.register__btn}
-            onClick={() => navigate('/register')}
-          >
-            Register
-          </button>
+          {
+            user ? (
+              <div className={styles.auth}>
+            <button
+              className={styles.login__btn}
+              onClick={() => navigate('/login')}
+            >
+              Login
+            </button>
+            <button
+              className={styles.register__btn}
+              onClick={() => navigate('/register')}
+            >
+              Register
+            </button>
+          </div>
+            ) : (
+              <button>
+                logout
+              </button>
+            )
+          }
         </div>
       </div>
     </header>
