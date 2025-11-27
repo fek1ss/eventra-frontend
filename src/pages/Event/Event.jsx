@@ -3,6 +3,7 @@ import Header from './../../components/loyaut/Header/Header';
 import HeroEvent from './../../components/loyaut/HeroEvent/HeroEvent';
 import { useLocation } from 'react-router-dom';
 import AboutEvent from './../../components/loyaut/AboutEvent/AboutEvent';
+import Footer from './../../components/loyaut/Footer/Footer';
 
 const Event = () => {
   const { state } = useLocation();
@@ -14,6 +15,7 @@ const Event = () => {
       <Header />
       <HeroEvent event={state} />
       <AboutEvent event={state} />
+      <Footer />
     </div>
   );
 };

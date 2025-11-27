@@ -30,8 +30,8 @@ const Header = () => {
           <a href="/categories" className={styles.nav__link}>
             Categories
           </a>
-          <a href="/contacts" className={styles.nav__link}>
-            Contacts
+          <a href="/about" className={styles.nav__link}>
+            About us
           </a>
           {user?.role === 'admin' && (
             <a className={styles.nav__link} href="/admin">

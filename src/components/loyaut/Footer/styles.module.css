@@ -1,0 +1,47 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+  height: auto;
+  background-color: var(--footer-color);
+}
+
+.title {
+  color: white;
+}
+
+.info {
+  width: 90%;
+  margin: 3rem auto;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.info__column {
+  height: 160px;
+  width: 25%;
+}
+
+.text {
+  color: #99A1AF;
+  font-size: 16px;
+}
+
+.policy {
+  width: 90%;
+  margin: 0 auto;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.socials {
+  display: flex;
+  gap: 0.5rem;
+}
+

@@ -5,6 +5,7 @@ import Search from '../../components/SearchEngine/SearchEngine';
 import Header from './../../components/loyaut/Header/Header';
 import Hero from './../../components/loyaut/Hero/Hero';
 import ListCards from './../../components/ListCards/ListCards';
+import Footer from '../../components/loyaut/Footer/Footer';
 
 const Home = () => {
   const token = localStorage.getItem('token');
@@ -21,6 +22,7 @@ const Home = () => {
       <Hero />
       <Search />
       <ListCards />
+      <Footer />
     </div>
   )
 }

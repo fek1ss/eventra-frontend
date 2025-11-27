@@ -1,11 +1,27 @@
 import { getAuthHeaders, BASE_URL } from './api';
 
+// let url = `${BASE_URL}/events`;
+// if (category) url += `?category=${encodeURIComponent(category)}`;
+// const res = await fetch(url, { headers: getAuthHeaders() });
+// return res.json();
 // Получить все мероприятия (с фильтром по категории)
-export const getEvents = async (category = '') => {
-  let url = `${BASE_URL}/events`;
-  if (category) url += `?category=${encodeURIComponent(category)}`;
-  const res = await fetch(url, { headers: getAuthHeaders() });
-  return res.json();
+export const getEvents = async (category = '', organization = '') => {
+  try {
+    let url = `${BASE_URL}`;
+    // Формируем query string
+    const params = new URLSearchParams();
+    if (category) params.append('category', category);
+    if (organization) params.append('organization', organization);
+
+    const response = await fetch(`${url}/events?${params.toString()}`);
+    if (!response.ok) throw new Error('Ошибка при загрузке событий');
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
 };
 
 // Получить одно мероприятие
