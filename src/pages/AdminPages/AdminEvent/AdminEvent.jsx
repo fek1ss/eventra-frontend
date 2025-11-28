@@ -1,9 +1,16 @@
 import styles from './styles.module.css';
-import { useMessage } from '../../hooks/useMessage';
-import { useState } from 'react';
-import { createEvent } from '../../services/eventService';
+import { useMessage } from '../../../hooks/useMessage';
+import { useEffect, useState } from 'react';
+import {
+  createEvent,
+  getEventById,
+  updateEvent,
+} from '../../../services/eventService';
+import { useLocation } from 'react-router-dom';
 
-const CreateEvent = () => {
+const AdminEvent = () => {
+  const { message, showMessage } = useMessage();
+  const { state } = useLocation();
   const [event, setEvent] = useState({
     title: '',
     description: '',
@@ -15,12 +22,39 @@ const CreateEvent = () => {
     image: null,
     price: '',
   });
+  useEffect(() => {
+    if (state) {
+      getEventById(state.id).then(data => {
+        setEvent({
+          title: data.title,
+          description: data.description,
+          date: data.date,
+          time: data.time,
+          organization: data.organization,
+          category: data.category,
+          location: data.location,
+          price: data.price,
+        });
+      });
+    }
+  }, [state]);
 
-  const { message, showMessage } = useMessage();
+  const handleUpdate = async () => {
+    try {
+      const payload = {
+        ...event,
+        date: event.date ? event.date.slice(0, 10) : null,
+      };
+      const update = await updateEvent(state.id, payload);
+      if (update) {
+        showMessage(update.message, false);
+      }
+    } catch (err) {
+      showMessage(`${err}`, true);
+    }
+  };
 
-  const handleCreateEvent = async e => {
-    e.preventDefault();
-
+  const handleCreateEvent = async () => {
     if (
       !event.title ||
       !event.description ||
@@ -47,7 +81,7 @@ const CreateEvent = () => {
           category: '',
           location: '',
           image: null,
-          price: ''
+          price: '',
         });
       }
     } catch (err) {
@@ -56,8 +90,12 @@ const CreateEvent = () => {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleCreateEvent}>
-      <h2 className={styles.title}>Создание мероприятия</h2>
+    <form className={styles.form}>
+      {state ? (
+        <h2 className={styles.title}>Обновление мероприятие:</h2>
+      ) : (
+        <h2 className={styles.title}>Создание мероприятия:</h2>
+      )}
 
       <div className={styles.row}>
         <label htmlFor="title" className={styles.label}>
@@ -67,8 +105,8 @@ const CreateEvent = () => {
             name="title"
             type="text"
             value={event.title}
-            onChange={val =>
-              setEvent(prev => ({ ...prev, title: val.target.value }))
+            onChange={e =>
+              setEvent(prev => ({ ...prev, title: e.target.value }))
             }
           />
         </label>
@@ -95,7 +133,7 @@ const CreateEvent = () => {
             className={styles.inp}
             name="date"
             type="date"
-            value={event.date}
+            value={event.date ? event.date.slice(0, 10) : ''}
             onChange={val =>
               setEvent(prev => ({ ...prev, date: val.target.value }))
             }
@@ -182,7 +220,7 @@ const CreateEvent = () => {
           className={styles.inp}
           name="price"
           type="text"
-          value={event.price}
+          value={event.price || ''}
           onChange={val =>
             setEvent(prev => ({
               ...prev,
@@ -192,9 +230,23 @@ const CreateEvent = () => {
         />
       </label>
 
-      <button type="submit" className={styles.btn}>
-        Опубликовать мероприятия
-      </button>
+      {state ? (
+        <button
+          onClick={handleUpdate}
+          className={styles.btn}
+          type="button"
+        >
+          Update
+        </button>
+      ) : (
+        <button
+          onClick={handleCreateEvent}
+          className={styles.btn}
+          type="button"
+        >
+          Опубликовать мероприятия
+        </button>
+      )}
 
       {message && (
         <p className={message.error ? 'error' : 'success'}>
@@ -205,4 +257,4 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
+export default AdminEvent;

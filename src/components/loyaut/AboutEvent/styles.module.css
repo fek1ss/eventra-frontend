@@ -28,7 +28,7 @@
 .tags {
   display: flex;
   gap: 2rem;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -69,4 +69,10 @@
 .btn:hover {
   transition: 0.3s ease;
   background-color: #e53935;
+}
+
+.edit {
+  cursor: pointer;
+  color: var(--main-color);
+  font-weight: bold;
 }

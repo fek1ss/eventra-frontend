@@ -27,6 +27,10 @@ const ListCards = () => {
     setVisibleCount(6);
   };
 
+  const loadEvents = async() => {
+    await getEvents().then(data => setEvents(data))
+  }
+
   useEffect(() => {
     getEvents(category).then(data => setEvents(data));
   }, [category]);
@@ -55,6 +59,7 @@ const ListCards = () => {
       <div className={styles.list}>
         {filteredEvents.slice(0, visibleCount).map(event => (
           <EventCard
+            loadEvents={loadEvents}
             key={event.id}
             event={event}
           />

@@ -22,7 +22,7 @@ const HeroEvent = ({event}) => {
           <IoIosArrowBack size={24} color="#a92225" />
           Back to Events
         </span>
-
+        
         <div className={styles.heading}>
           <span className={styles.tag}>{event.category}</span>
           <h1 className={styles.title}>{event.title}</h1>

@@ -1,7 +1,8 @@
 import styles from './styles.module.css';
-import CreateEvent from './../../components/CreateEvent/CreateEvent';
+import CreateEvent from './AdminEvent/AdminEvent';
 import { IoMdArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
+import AdminEvent from './AdminEvent/AdminEvent';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Admin = () => {
         <h1 className={styles.title}>Админ панель</h1>
 
         <div className={styles.adminSection}>
-          <CreateEvent />
+          <AdminEvent />
         </div>
       </div>
     </div>

@@ -8,10 +8,10 @@ const Header = () => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
 
-  const handleLogout = async() => {
+  const handleLogout = async () => {
     await logoutUser();
-    navigate('/login')
-  }
+    navigate('/login');
+  };
 
   return (
     <header className={styles.header}>
@@ -58,28 +58,26 @@ const Header = () => {
             />
           </a>
           ;
-          {
-            user?.token ? (
-              <div className={styles.auth}>
-            <button
-              className={styles.login__btn}
-              onClick={() => navigate('/login')}
-            >
-              Login
+          {user ? (
+            <button onClick={handleLogout} className={styles.logout}>
+              logout
             </button>
-            <button
-              className={styles.register__btn}
-              onClick={() => navigate('/register')}
-            >
-              Register
-            </button>
-          </div>
-            ) : (
-              <button onClick={handleLogout} className={styles.logout}>
-                logout
+          ) : (
+            <div className={styles.auth}>
+              <button
+                className={styles.login__btn}
+                onClick={() => navigate('/login')}
+              >
+                Login
               </button>
-            )
-          }
+              <button
+                className={styles.register__btn}
+                onClick={() => navigate('/register')}
+              >
+                Register
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>

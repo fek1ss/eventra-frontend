@@ -1,16 +1,23 @@
 import styles from './styles.module.css';
 import Header from './../../components/loyaut/Header/Header';
 import HeroEvent from './../../components/loyaut/HeroEvent/HeroEvent';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import AboutEvent from './../../components/loyaut/AboutEvent/AboutEvent';
 import Footer from './../../components/loyaut/Footer/Footer';
 import Modal from './../../components/Modal/Modal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Event = () => {
   const { state } = useLocation();
   const [modal, setModal] = useState(false);
   const user = JSON.parse(localStorage.getItem('user'));
+  const token = localStorage.getItem('token');
+  const navigate = useNavigate();
+  
+  
+  useEffect(() => {
+    if (!token) navigate('/login');
+  }, [token, navigate]);
 
   if (!state) return <p>No data</p>;
 

@@ -24,9 +24,9 @@ export const getEvents = async (category = '', organization = '') => {
   }
 };
 
-// Получить одно мероприятие
-export const getLatestEvent = async () => {
-  const res = await fetch(`${BASE_URL}/events/latest`, {
+// Получить мероприятие по id
+export const getEventById = async (id) => {
+  const res = await fetch(`${BASE_URL}/events/${id}`, {
     headers: getAuthHeaders(),
   });
   return res.json();
