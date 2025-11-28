@@ -32,6 +32,15 @@
   font-size: 16px;
 }
 
+.secret_link {
+  color: #151d2d;
+  position: relative;
+  top: 15%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .policy {
   width: 90%;
   margin: 0 auto;

@@ -29,7 +29,7 @@ const Modal = ({ setModal, user_id, event  }) => {
 
     try {
       const payload = {
-        event_id: Number(event.event_id),
+        event_id: event.id,
         user_id: Number(user_id),
         first_name: registerData.first_name,
         last_name: registerData.last_name,
@@ -54,7 +54,7 @@ const Modal = ({ setModal, user_id, event  }) => {
         isPaid: '',
       });
     } catch (err) {
-      showMessage(`${err}`, true);
+      showMessage(`${err}, срок сессии истек, перезайдите в аккаунт`, true);
     }
   };
 
