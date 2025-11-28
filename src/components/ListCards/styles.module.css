@@ -25,6 +25,10 @@
   position: relative;
 }
 
+.loading {
+  color: var(--main-color);
+}
+
 .title {
   color: var(--main-color);
 }
