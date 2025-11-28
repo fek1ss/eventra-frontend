@@ -7,6 +7,7 @@ import SearchEngine from './../SearchEngine/SearchEngine';
 import Filter from './../Filter/Filter';
 
 const ListCards = () => {
+  const [loading, setLoading] = useState(false);
   const [events, setEvents] = useState([]);
 
   const [visibleCount, setVisibleCount] = useState(6);
@@ -27,12 +28,25 @@ const ListCards = () => {
     setVisibleCount(6);
   };
 
-  const loadEvents = async() => {
-    await getEvents().then(data => setEvents(data))
-  }
+  const loadEvents = async () => {
+    setLoading(true);
+    await getEvents()
+      .then(data => setEvents(data))
+      .finally(() => setLoading(false));
+  };
 
   useEffect(() => {
-    getEvents(category).then(data => setEvents(data));
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const data = await getEvents(category);
+        setEvents(data);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, [category]);
 
   return (
@@ -56,15 +70,20 @@ const ListCards = () => {
           </p>
         )}
       </section>
-      <div className={styles.list}>
-        {filteredEvents.slice(0, visibleCount).map(event => (
-          <EventCard
-            loadEvents={loadEvents}
-            key={event.id}
-            event={event}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <p className={styles.loading}>Loading...</p>
+      ) : (
+        <div className={styles.list}>
+          {filteredEvents.slice(0, visibleCount).map(event => (
+            <EventCard
+              loadEvents={loadEvents}
+              key={event.id}
+              event={event}
+            />
+          ))}
+        </div>
+      )}
+
       <Organizations events={events} />
     </div>
   );
