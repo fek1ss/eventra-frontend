@@ -32,7 +32,7 @@ const EventCard = ({ event, loadEvents }) => {
               {event.price !== null && event.price}
             </span>
           )}
-          {user.role === 'admin' && (
+          {user?.role === 'admin' && (
             <button
               className={styles.delete}
               onClick={e => {
