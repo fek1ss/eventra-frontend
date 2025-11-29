@@ -43,7 +43,7 @@ const Login = () => {
             setUserData(prev => ({ ...prev, email: val }))
           }
         />
-        <div>
+        <div className={styles.con}>
           <Input
             name="password"
             value={userData.password}
