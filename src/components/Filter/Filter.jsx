@@ -1,6 +1,19 @@
 import styles from './styles.module.css';
 
-const Filter = ({ setCategory }) => {
+const Filter = ({ setCategory, events }) => {
+  var nonRepCategory = [];
+  events.filter(event => {
+    var i = nonRepCategory.findIndex(
+      x =>
+        x.category.toLowerCase().replace(/\s/g, '') ==
+        event.category.toLowerCase().replace(/\s/g, ''),
+    );
+    if (i <= -1) {
+      nonRepCategory.push(event);
+    }
+    return null;
+  });
+
   return (
     <div className={styles.section__filter}>
       <select
@@ -13,18 +26,15 @@ const Filter = ({ setCategory }) => {
         <option value="" className={styles.option}>
           Категории
         </option>
-        <option value="ярмарка" className={styles.option}>
-          Ярмарка
-        </option>
-        <option value="Концерт" className={styles.option}>
-          Концерт
-        </option>
-        <option value="мастеркласс" className={styles.option}>
-          мастеркласс
-        </option>
-        <option value="Мероприятие" className={styles.option}>
-          Мероприятие
-        </option>
+        {nonRepCategory.map(event => (
+          <option
+            key={event.id}
+            value={event.category}
+            className={styles.option}
+          >
+            {event.category}
+          </option>
+        ))}
       </select>
     </div>
   );

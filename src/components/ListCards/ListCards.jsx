@@ -52,7 +52,7 @@ const ListCards = () => {
   return (
     <div className={styles.comming}>
       <SearchEngine query={query} setQuery={setQuery} />
-      <Filter setCategory={setCategory} />
+      <Filter events={events} setCategory={setCategory} />
       <section className={styles.container}>
         <div className={styles.popular}>
           <h1 className={styles.title}>Coming Soon</h1>
