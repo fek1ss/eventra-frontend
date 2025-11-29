@@ -224,8 +224,12 @@
   }
 
   .auth {
-    /* СКРЫВАЕМ текстовые кнопки "Вход/Регистрация" */
-    display: none;
+    flex-direction: column;
+  }
+
+  .register__btn {
+    border: 1px solid white;
+    color: white;
   }
 
   /* --- Действия (Иконки) --- */
