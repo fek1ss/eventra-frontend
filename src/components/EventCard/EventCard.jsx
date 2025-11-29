@@ -27,7 +27,7 @@ const EventCard = ({ event, loadEvents }) => {
     <div className={styles.card} onClick={handleClick}>
       <div className={styles.image__container}>
         <div className={styles.actions}>
-          {event.price !== null && (
+          {event?.price && (
             <span className={styles.tag}>
               {event.price !== null && event.price}
             </span>
@@ -46,12 +46,11 @@ const EventCard = ({ event, loadEvents }) => {
         </div>
         <img
           className={styles.img__card}
-          src={`${event.image !== null ? event.image : '/assets/Container.png'}`}
+          src={`${(event.image && event.image.startsWith('https')) ? event.image : '/assets/eventralogo.PNG'}`}
           alt="banner image"
         />
       </div>
       <section className={styles.info}>
-        <span className={styles.tag}>{event.category}</span>
         <p className={styles.title}>{event.title}</p>
         <div className={styles.info__date}>
           <FaCalendarAlt size={10} color="#4A5565" />
