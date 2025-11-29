@@ -1,11 +1,15 @@
 .header {
   position: fixed;
   top: 0;
-  z-index: 500; 
+  z-index: 500;
   width: 100%;
   background-color: white; /* Фон хедера */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   height: 68px;
+}
+
+.hamburgerWrapper {
+  display: none;
 }
 
 .wrapper {
@@ -14,6 +18,7 @@
   align-items: center;
   width: 90%;
   margin: 0 auto;
+  /* position: relative; */
 }
 
 .header__logo {
@@ -68,7 +73,7 @@
   color: var(--main-color);
   background-color: #f1b3b2;
   border-radius: 5px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .header__actions {
@@ -113,4 +118,126 @@
   color: white;
   cursor: pointer;
   background-color: var(--grey-color);
+}
+
+/* ==================================================
+  1. Адаптация для планшетов (max-width: 1024px)
+   ================================================== */
+@media (max-width: 1024px) {
+  .header {
+    height: 60px; /* Немного уменьшаем высоту хедера */
+    display: flex;
+    align-items: center;
+  }
+  .wrapper {
+    /* Уменьшаем ширину контейнера, чтобы он не прилипал к краям */
+    width: 95%;
+  }
+
+  .header__nav {
+    /* Уменьшаем расстояние между ссылками, чтобы они поместились */
+    gap: 1rem;
+  }
+
+  .header__actions {
+    /* Уменьшаем расстояние между иконками/кнопками */
+    gap: 1rem;
+  }
+
+  .header__logo h1 {
+    /* Немного уменьшаем заголовок логотипа */
+    font-size: 20px;
+  }
+}
+
+/* ==================================================
+  2. Адаптация для телефонов (max-width: 768px)
+   ================================================== */
+@media (max-width: 768px) {
+  /* --- Логотип --- */
+  .logo__container {
+    width: 35px;
+    height: 35px;
+  }
+
+  .header__logo h1 {
+    /* Часто на телефонах заголовок рядом с логотипом скрывают */
+    display: none;
+  }
+
+  .searchIcon {
+    display: none;
+  }
+
+  /* --- Навигация и кнопки --- */
+
+  .header__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    gap: 2rem;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--main-color);
+    color: white;
+    opacity: 90%;
+    height: 100vh;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .header__actions {
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  .hamburgerWrapper {
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    right: 2rem;
+  }
+
+  .nav__link {
+    font-size: 24px;
+    color: white;
+  }
+
+  .header__open {
+    transform: translateX(0);
+  }
+
+  .header__close {
+    transform: translateX(100%);
+  }
+
+  .auth {
+    /* СКРЫВАЕМ текстовые кнопки "Вход/Регистрация" */
+    display: none;
+  }
+
+  /* --- Действия (Иконки) --- */
+  /* Убеждаемся, что иконки действий остаются (Поиск, Корзина, Профиль) */
+  .icon {
+    width: 30px;
+    height: 30px;
+    padding: 2px;
+    color: white;
+    fill: white;
+  }
+
+  /* ЕСЛИ нужно добавить иконку-меню (бургер) вместо навигации: */
+  /* Вставляем ваш компонент <BurgerMenuIcon /> в header__actions */
 }

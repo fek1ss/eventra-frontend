@@ -12,23 +12,24 @@
 
   --main-color: #a92225;
   --black-color: #242424;
-  --grey-color: #4A5565;
+  --grey-color: #4a5565;
   --footer-color: #101828;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   background-color: #fff;
   scroll-behavior: smooth;
 }
+
+
 
 body {
   margin: 0;
   width: 100%;
   box-sizing: border-box;
 }
-
-
 
 .success {
   color: green;
@@ -50,12 +51,40 @@ body {
   padding: 3px 0.5rem;
   border-radius: 5px;
   color: var(--main-color);
-  transition: .4s ease;
+  transition: 0.4s ease;
   font-weight: bold;
 }
 
 .back:hover {
   background-color: #f1b3b2;
-  transition: .4s ease;
+  transition: 0.4s ease;
 }
 
+@media (max-width: 1024px) {
+  :root {
+    /* Немного уменьшаем базовый размер шрифта для планшетов */
+    font-size: 15px;
+  }
+}
+
+/* ==================================================
+  2. Адаптация для телефонов (max-width: 600px)
+   ================================================== */
+@media (max-width: 600px) {
+  :root {
+    /* Устанавливаем меньший базовый размер шрифта для телефонов */
+    font-size: 14px;
+    line-height: 1.4; /* Можем уменьшить межстрочный интервал */
+  }
+
+  body {
+    /* Убеждаемся, что нет горизонтальной прокрутки, вызванной margin/padding */
+    overflow-x: hidden;
+  }
+
+  /* Стили для ссылки "Назад" */
+  .back {
+    font-size: 12px; /* Уменьшаем размер текста "Назад" */
+    padding: 3px 0.3rem;
+  }
+}

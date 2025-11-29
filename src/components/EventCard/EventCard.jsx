@@ -46,7 +46,7 @@ const EventCard = ({ event, loadEvents }) => {
         </div>
         <img
           className={styles.img__card}
-          src={`${(event.image && event.image.startsWith('https')) ? event.image : '/assets/eventralogo.PNG'}`}
+          src={`${(event.image && event.image.startsWith('http')) ? event.image : '/assets/eventralogo.PNG'}`}
           alt="banner image"
         />
       </div>

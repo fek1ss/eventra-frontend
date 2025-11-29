@@ -28,7 +28,7 @@
 }
 
 .text {
-  color: #99A1AF;
+  color: #99a1af;
   font-size: 16px;
 }
 
@@ -54,3 +54,76 @@
   gap: 0.5rem;
 }
 
+/* ==================================================
+   1. Адаптация для планшетов (max-width: 1024px)
+   ================================================== */
+@media (max-width: 1024px) {
+  .info {
+    /* Переключаемся на 2 колонки */
+    flex-wrap: wrap; /* Разрешаем колонкам переноситься на новую строку */
+    justify-content: space-around; /* Центрируем и распределяем */
+  }
+
+  .info__column {
+    /* 2 колонки на строку (45% ширины, чтобы уместить зазор) */
+    width: 45%;
+    margin-bottom: 2rem; /* Добавляем отступ между строками */
+  }
+}
+
+/* ==================================================
+   2. Адаптация для телефонов (max-width: 600px)
+   ================================================== */
+@media (max-width: 600px) {
+  .footer {
+    gap: 1.5rem; /* Уменьшаем вертикальный отступ */
+    padding-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .info {
+    /* Переключаемся на 1 колонку */
+    flex-direction: column;
+    align-items: flex-start; /* Выравнивание по левому краю */
+    width: 90%; /* Используем больше ширины */
+    margin: 2rem auto 1rem auto;
+  }
+
+  .info__column {
+    /* 1 колонка на всю ширину */
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- Секция Политики (Bottom Bar) --- */
+  .policy {
+    /* На телефонах располагаем элементы вертикально */
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое */
+    text-align: center;
+    width: 90%;
+    padding-top: 1rem;
+  }
+
+  .socials {
+    margin-top: 1rem;
+    gap: 1rem; /* Увеличиваем расстояние между иконками соцсетей */
+  }
+
+  .secret_link {
+    /* Адаптируем позиционирование, если оно было привязано к абсолютным значениям */
+    position: static;
+    top: auto;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  .text {
+    font-size: 14px; /* Уменьшаем размер основного текста футера */
+    text-align: left;
+  }
+}

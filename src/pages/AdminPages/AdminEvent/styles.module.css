@@ -4,7 +4,7 @@
   align-items: start;
   justify-content: center;
   border-radius: 10px;
-  padding:  0 1rem;
+  padding: 0 1rem;
   background-color: white;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
   width: 100%;
@@ -44,7 +44,6 @@
   font-size: 16px;
 }
 
-
 .inpDesc {
   font-size: 14px;
   padding: 1rem;
@@ -57,7 +56,6 @@
   margin: 1rem 0;
 }
 
-
 .btn {
   padding: 1rem 2rem;
   border: none;
@@ -69,4 +67,69 @@
   margin-top: 20px;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .form {
+    padding: 0 0.5rem;
+    box-shadow: none;
+    /* Убеждаемся, что box-sizing установлен */
+    box-sizing: border-box;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    /* Устанавливаем margin-left в 0, чтобы избежать смещения заголовка 
+           относительно полей ввода, которые будут на 100% ширины */
+    margin-left: 0;
+    padding-left: 0.5rem; /* Используем padding для отступа от края формы */
+  }
+
+  /* --- Адаптация ряда --- */
+  .row {
+    /* Принудительное выравнивание по левому краю */
+    flex-direction: column;
+    align-items: flex-start; /* Изменено на flex-start */
+    width: 100%;
+    gap: 0.75rem; /* Немного увеличено, чтобы избежать слипания */
+  }
+
+  /* --- Адаптация меток (контейнеров полей) --- */
+  .label,
+  .label__price {
+    /* Должны быть 100% ширины .row, который 100% ширины .form */
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 0; /* Удаляем лишние вертикальные margin-bottom */
+  }
+
+  /* --- Адаптация полей ввода (input, textarea) --- */
+  .inp {
+    /* Занимает всю ширину своего родителя (.label/.label__price) */
+    width: 100%;
+    font-size: 14px;
+    padding: 0.75rem; /* Уменьшаем паддинг */
+    margin: 0.25rem 0; /* Уменьшаем margin */
+    box-sizing: border-box; /* Гарантируем border-box для поля */
+  }
+
+  .inpDesc {
+    width: 100%;
+    font-size: 14px;
+    padding: 0.75rem;
+    min-height: 80px;
+    margin: 0.5rem 0;
+    box-sizing: border-box; /* Гарантируем border-box для поля */
+  }
+
+  /* --- Кнопка --- */
+  .btn {
+    /* Установим 100% для полного заполнения, как и поля ввода */
+    width: 100%;
+    min-width: auto;
+    padding: 0.75rem 1rem;
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 1rem;
+  }
 }

@@ -33,6 +33,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   gap: 1rem;
   background-color: white;
   border-radius: 14px;
@@ -41,7 +42,9 @@
   color: white;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
   padding: 0;
-  transition: top .4s ease, box-shadow .4s ease;
+  transition:
+    top 0.4s ease,
+    box-shadow 0.4s ease;
   cursor: pointer;
   border: none;
   background-color: var(--main-color);
@@ -50,6 +53,74 @@
 .org:hover {
   color: #000;
   top: -10px;
-  transition: .4s;
+  transition: 0.4s;
   box-shadow: 0 25px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* ==================================================
+  1. Адаптация для больших экранов (max-width: 1200px)
+   ================================================== */
+@media (max-width: 1200px) {
+  .orgs {
+    /* 4 колонки */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+
+  .org {
+    /* Убираем фиксированную ширину, чтобы ячейки растягивались */
+    width: 100%;
+    /* Высота может быть уменьшена */
+    height: 90px;
+  }
+}
+
+/* ==================================================
+   2. Адаптация для планшетов (max-width: 900px)
+   ================================================== */
+@media (max-width: 900px) {
+  .orgs {
+    /* 3 колонки */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .org {
+    /* Убираем hover-эффекты на сенсорных устройствах */
+    top: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .org:hover {
+    top: 0;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05); /* Отменяем сильную тень */
+  }
+}
+
+/* ==================================================
+  3. Адаптация для телефонов (max-width: 600px)
+   ================================================== */
+@media (max-width: 600px) {
+  .section_orgs {
+    margin-top: 2rem;
+    padding: 0 10px; /* Добавляем внутренний отступ, если нужно */
+  }
+
+  .orgs {
+    /* 2 колонки */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .org {
+    height: 80px; /* Еще уменьшаем высоту */
+    margin-top: 1.5rem;
+    gap: 0.5rem;
+    border-radius: 8px;
+  }
+
+  .heading {
+    /* Уменьшаем размер заголовков */
+    font-size: 1.1rem;
+  }
 }

@@ -52,7 +52,6 @@
   padding-top: 1rem;
 }
 
-
 .heading {
   width: 100%;
   margin: 0 auto;
@@ -69,8 +68,6 @@
   border-radius: 8px;
 }
 
-.title {
-}
 
 .info {
   display: flex;
@@ -81,4 +78,56 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    /* Уменьшаем высоту, но сохраняем видимость изображения */
+    height: 300px;
+    /* Уменьшаем margin-top, так как хедер на мобильных обычно ниже */
+    margin-top: 60px;
+  }
+
+  .img__banner {
+    width: 100%;
+  }
+
+  .container {
+    /* Убеждаемся, что контент занимает почти всю ширину */
+    width: 95%;
+    align-items: start;
+    justify-content: start;
+    height: 100%;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+  }
+
+  .heading {
+    /* На мобильных часто выравнивают заголовок по центру для лучшего вида */
+    align-items: start;
+    text-align: center;
+    gap: 0;
+    margin-top: 25%;
+  }
+
+  .title {
+    margin: 0;
+    font-size: 1.8rem; /* Уменьшаем размер заголовка */
+  }
+
+  .tag {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .info {
+    /* Переносим элементы информации (дата, место) в столбец */
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .info__item {
+    font-size: 0.9rem;
+    margin: 0;
+  }
 }
