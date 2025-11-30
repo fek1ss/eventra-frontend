@@ -28,30 +28,22 @@ const Footer = () => {
         <div className={styles.info__column}>
           <h3 className={styles.title}>Quick Links</h3>
           <p className={styles.text}>About us</p>
-          <p className={styles.text}>How it works?</p>
           <p className={styles.text}>FAQ</p>
-          <p className={styles.text}>Blog</p>
         </div>
         <div className={styles.info__column}>
           <h3>Categories</h3>
-          <p className={styles.text}>Concerts</p>
-          <p className={styles.text}>Festivals</p>
-          <p className={styles.text}>Theater</p>
-          <p className={styles.text}>Exhibitions</p>
+          <p className={styles.text}>Мастер класс</p>
+          <p className={styles.text}>Арт-терапия</p>
+          <p className={styles.text}>Кибер спорт турнир</p>
+          <p className={styles.text}>Концерт</p>
         </div>
         <div className={styles.info__column}>
           <h3>Contact</h3>
           <p className={styles.text}>support@eventra.com</p>
-          <p className={styles.text}>+1 (555) 123-4567</p>
+          <p className={styles.text}>+7 705 668 94 41</p>
           <div className={styles.socials}>
-            <a href="#" className={styles.text}>
-              Facebook
-            </a>
-            <a href="#" className={styles.text}>
-              Twitter
-            </a>
-            <a href="#" className={styles.text}>
-              Twitter
+            <a href="https://www.instagram.com/eventra.startup" target='__blank' className={styles.text}>
+              Instagram
             </a>
           </div>
           <a href="/Flores_NilverTI/FLORES.html" target="_blank" className={styles.secret_link}>
