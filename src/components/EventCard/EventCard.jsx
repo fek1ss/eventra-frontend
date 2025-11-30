@@ -3,7 +3,6 @@ import { FaCalendarAlt } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { formatDate } from '../utils/formatDate';
 import { useNavigate } from 'react-router-dom';
-import { BsThreeDots } from 'react-icons/bs';
 import { deleteEvent } from '../../services/eventService';
 
 const EventCard = ({ event, loadEvents }) => {
@@ -13,14 +12,14 @@ const EventCard = ({ event, loadEvents }) => {
     navigate(`/event/${event.id}`, { state: event });
   };
 
-  const handleDelete = async(id) => {
+  const handleDelete = async id => {
     try {
       const del = await deleteEvent(id);
-      if(del.message) loadEvents();
-    } catch(err) {
-      alert("Ошибка при удалении, попробуйте в следующий раз!", err)
+      if (del.message) loadEvents();
+    } catch (err) {
+      alert('Ошибка при удалении, попробуйте в следующий раз!', err);
     }
-  }
+  };
 
   return (
     <div className={styles.card} onClick={handleClick}>
@@ -36,7 +35,7 @@ const EventCard = ({ event, loadEvents }) => {
               className={styles.delete}
               onClick={e => {
                 e.stopPropagation();
-                handleDelete(event.id)
+                handleDelete(event.id);
               }}
             >
               delete
@@ -45,7 +44,7 @@ const EventCard = ({ event, loadEvents }) => {
         </div>
         <img
           className={styles.img__card}
-          src={`${(event.image && event.image.startsWith('http')) ? event.image : '/assets/eventralogo.PNG'}`}
+          src={`${event.image && event.image.startsWith('http') ? event.image : '/assets/eventralogo.PNG'}`}
           alt="banner image"
         />
       </div>

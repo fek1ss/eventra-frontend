@@ -5,6 +5,7 @@ import { getEvents } from '../../services/eventService';
 import Organizations from '../Organizations/Organizations';
 import SearchEngine from './../SearchEngine/SearchEngine';
 import Filter from './../Filter/Filter';
+import Loading from '../loyaut/LoadingSkeleton/Loading';
 
 const ListCards = () => {
   const [loading, setLoading] = useState(false);
@@ -70,8 +71,8 @@ const ListCards = () => {
           </p>
         )}
       </section>
-      {loading ? (
-        <p className={styles.loading}>Loading...</p>
+      {!loading ? (
+        <Loading />
       ) : (
         <div className={styles.list}>
           {filteredEvents.slice(0, visibleCount).map(event => (
