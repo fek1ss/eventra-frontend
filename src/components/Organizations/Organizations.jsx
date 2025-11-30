@@ -11,6 +11,25 @@ const Organizations = ({ events }) => {
   const showLess = () => {
     setVisibleCount(5);
   };
+
+  const uniqueOrganizations = events.reduce((acc, event) => {
+    const normalized = event.organization
+      ?.toLowerCase()
+      .replace(/\s/g, '');
+
+    if (
+      !acc.some(
+        e =>
+          e.organization?.toLowerCase().replace(/\s/g, '') ===
+          normalized,
+      )
+    ) {
+      acc.push(event);
+    }
+
+    return acc;
+  }, []);
+
   return (
     <section className={styles.section_orgs} id="organizations">
       <div className={styles.heading}>
@@ -26,8 +45,10 @@ const Organizations = ({ events }) => {
         )}
       </div>
       <div className={styles.orgs}>
-        {events.slice(0,visibleCount).map(event => (
-          <div className={styles.org} key={event.id}>{event.organization}</div>
+        {uniqueOrganizations.slice(0, visibleCount).map(event => (
+          <div className={styles.org} key={event.id}>
+            {event.organization}
+          </div>
         ))}
       </div>
     </section>
