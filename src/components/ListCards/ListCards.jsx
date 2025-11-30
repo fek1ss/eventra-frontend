@@ -71,7 +71,7 @@ const ListCards = () => {
           </p>
         )}
       </section>
-      {!loading ? (
+      {loading ? (
         <Loading />
       ) : (
         <div className={styles.list}>
