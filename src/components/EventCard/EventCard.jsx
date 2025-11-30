@@ -9,7 +9,6 @@ import { deleteEvent } from '../../services/eventService';
 const EventCard = ({ event, loadEvents }) => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
-  event.location;
   const handleClick = () => {
     navigate(`/event/${event.id}`, { state: event });
   };

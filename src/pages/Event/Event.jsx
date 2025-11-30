@@ -30,7 +30,7 @@ const Event = () => {
         {modal && (
           <Modal
             setModal={setModal}
-            user_id={user.id}
+            user_id={user?.id}
             event={state}
           />
         )}

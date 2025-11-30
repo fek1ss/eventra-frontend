@@ -4,28 +4,23 @@ import { useMessage } from '../../hooks/useMessage';
 import { registerForEvent } from '../../services/registrationService';
 import Input from './../Input/Input';
 
-const Modal = ({ setModal, user_id, event  }) => {
+const Modal = ({ setModal, user_id, event }) => {
   const { message, showMessage } = useMessage();
+  const [whatsappLink, setWhatsappLink] = useState(null);
+
   const [registerData, setRegisterData] = useState({
-    event_id: '',
-    user_id: '',
     first_name: '',
     last_name: '',
     phone: '',
-    isPaid: '',
   });
 
   const handleRegEvent = async e => {
     e.preventDefault();
-    if (
-      !registerData.first_name ||
-      !registerData.last_name ||
-      !registerData.phone
-    ) {
+
+    if (!registerData.first_name || !registerData.last_name || !registerData.phone) {
       showMessage('fill in all fields', true);
       return;
     }
-    console.log(event)
 
     try {
       const payload = {
@@ -36,48 +31,36 @@ const Modal = ({ setModal, user_id, event  }) => {
         phone: registerData.phone,
         isPaid: event.isPaid,
       };
+
       const regData = await registerForEvent(payload);
-      showMessage(regData.message, false);
-      console.log(regData.whatsappLink);
 
       if (regData.whatsappLink) {
-        console.log(regData.whatsappLink);
-        window.open(regData.whatsappLink, '_blank');
+        showMessage(regData.message, false);
+        setWhatsappLink(regData.whatsappLink);   // <--- сохраняем ссылку
       }
 
       setRegisterData({
-        event_id: '',
-        user_id: '',
         first_name: '',
         last_name: '',
         phone: '',
-        isPaid: '',
       });
+
     } catch (err) {
       showMessage(`${err}, срок сессии истек, перезайдите в аккаунт`, true);
     }
   };
 
-  // event_id, user_id, first_name, last_name, phone, isPaid
   return (
-    <div
-      className={styles.background}
-      onClick={() => setModal(false)}
-    >
-      <div
-        className={styles.modal}
-        onClick={e => e.stopPropagation()}
-      >
+    <div className={styles.background} onClick={() => setModal(false)}>
+      <div className={styles.modal} onClick={e => e.stopPropagation()}>
         <form onSubmit={handleRegEvent} className={styles.form}>
           <div className={styles.heading}>
-            <h1 className={styles.title}>
-              Регистрация на мероприятие
-            </h1>
+            <h1 className={styles.title}>Регистрация на мероприятие</h1>
             <p className={styles.text}>
-              Напишите в ватцап о регистрации, поддержите нас свои
-              сообщением
+              Напишите в WhatsApp о регистрации, поддержите нас своим сообщением
             </p>
           </div>
+
           <Input
             label="First name:"
             type="text"
@@ -86,6 +69,7 @@ const Modal = ({ setModal, user_id, event  }) => {
               setRegisterData(prev => ({ ...prev, first_name: val }))
             }
           />
+
           <Input
             label="Last name:"
             type="text"
@@ -94,6 +78,7 @@ const Modal = ({ setModal, user_id, event  }) => {
               setRegisterData(prev => ({ ...prev, last_name: val }))
             }
           />
+
           <Input
             label="Phone:"
             type="text"
@@ -103,12 +88,28 @@ const Modal = ({ setModal, user_id, event  }) => {
             }
           />
 
-          <button type="submit" className={styles.btn}>Отправить сообщение</button>
+          <button type="submit" className={styles.btn}>
+            Отправить сообщение
+          </button>
         </form>
+
+        {/* Сообщение */}
         {message && (
           <p className={message.error ? 'error' : 'success'}>
             {message?.text}
           </p>
+        )}
+
+        {/* Кнопка WhatsApp — появляется только после регистрации */}
+        {whatsappLink && (
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.waButton}
+          >
+            Открыть WhatsApp
+          </a>
         )}
       </div>
     </div>
