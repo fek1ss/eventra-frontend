@@ -46,7 +46,7 @@ const User = () => {
       .finally(() => setLoading(false));
   };
 
-  if (!stats || loading) return <p>Loading...</p>;
+  if (!stats || loading) return <p className={styles.load}>Loading...</p>;
 
   return (
     <div className={styles.userPage}>

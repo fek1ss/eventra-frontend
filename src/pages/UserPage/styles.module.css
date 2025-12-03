@@ -49,3 +49,28 @@
 .empty {
   color: black;
 }
+
+
+/* ============= MOBILE ============= */
+
+@media (max-width: 768px) {
+  .userPage {
+    padding: 1.5rem 0;
+    top: 1rem;
+  }
+
+  .wrapper {
+    width: 95%;
+    align-items: center; /* центрируем */
+  }
+
+  .list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .listEvents {
+    grid-template-columns: 1fr; /* одна колонка */
+    gap: 1rem;
+  }
+}

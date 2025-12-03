@@ -56,4 +56,26 @@
 }
 
 
+/* ============= MOBILE ============= */
+
+@media (max-width: 768px) {
+  .card {
+    width: 100%;
+    height: 180px;
+  }
+
+  .iconWrapper {
+    padding: 0.7rem;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .value {
+    font-size: 26px;
+  }
+}
+
+
 

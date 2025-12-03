@@ -12,9 +12,9 @@ const AboutUser = ({name, surname, email}) => {
           <p className={styles.email}>{email}</p>
         </div>
       </div>
-      <div className={styles.settings}>
+      {/* <div className={styles.settings}>
         <button className={styles.btn}>edit</button>
-      </div>
+      </div> */}
     </section>
   )
 }
