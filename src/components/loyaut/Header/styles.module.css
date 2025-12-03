@@ -227,6 +227,11 @@
     flex-direction: column;
   }
 
+  .login__btn {
+    border: 1px solid white;
+    color: white;
+  }
+
   .register__btn {
     border: 1px solid white;
     color: white;
