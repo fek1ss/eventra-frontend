@@ -24,6 +24,12 @@
   box-shadow: 0 25px 35px rgba(0, 0, 0, 0.05);
 }
 
+.cardBlock {
+  flex-direction: row;
+  justify-self: start;
+  width: 100%;
+}
+
 .image__container {
   margin: 0;
   width: 100%;
@@ -31,10 +37,15 @@
   border-radius: 14px 14px 0 0;
 }
 
+.cont {
+  width: auto;
+  margin-left: 2rem;
+}
+
 .tag {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 2rem;
   background-color: var(--main-color);
   border-radius: 5px;
   color: white;
@@ -76,6 +87,10 @@
   object-fit: cover;
   border-radius: 14px 14px 0 0;
   transition: transform 0.5s ease;
+}
+
+.ava {
+  width: 250px;
 }
 
 .card:hover .img__card {

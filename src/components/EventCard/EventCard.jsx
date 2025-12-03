@@ -5,7 +5,7 @@ import { formatDate } from '../utils/formatDate';
 import { useNavigate } from 'react-router-dom';
 import { deleteEvent } from '../../services/eventService';
 
-const EventCard = ({ event, loadEvents }) => {
+const EventCard = ({ event, loadEvents, userEvent = false }) => {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('user'));
   const handleClick = () => {
@@ -22,7 +22,10 @@ const EventCard = ({ event, loadEvents }) => {
   };
 
   return (
-    <div className={styles.card} onClick={handleClick}>
+    <div
+      className={styles.card}
+      onClick={handleClick}
+    >
       <div className={styles.image__container}>
         <div className={styles.actions}>
           {event?.price && (
@@ -58,7 +61,9 @@ const EventCard = ({ event, loadEvents }) => {
           <FaMapMarkerAlt size={10} color="#4A5565" />
           <p className={styles.date}>{event.location}</p>
         </div>
-        <button className={styles.btn}>Registration</button>
+        {!userEvent && (
+          <button className={styles.btn}>Registration</button>
+        )}
       </section>
     </div>
   );

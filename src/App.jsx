@@ -4,6 +4,7 @@ import Login from './pages/auth/login';
 import Register from './pages/auth/Register';
 import Admin from './pages/AdminPages/Admin';
 import Event from './pages/Event/Event';
+import User from './pages/UserPage/User';
 
 function App() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -22,6 +23,7 @@ function App() {
             </>
           )}
           <Route path="/event/:id" element={<Event />} />
+          <Route path="/profile" element={<User />} />
         </Routes>
       </BrowserRouter>
     </div>

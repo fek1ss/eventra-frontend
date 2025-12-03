@@ -1,0 +1,59 @@
+.about {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 180px;
+  border: 1px solid rgb(215, 215, 215);
+  border-radius: 14px;
+  margin: 2rem 0;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 50%;
+  margin-left: 2rem;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: var(--main-color);
+}
+
+.shortName {
+  color: white;
+}
+
+.name {
+  color: black;
+  margin: 0;
+}
+
+.email {
+  color: var(--grey-color);
+  margin: 0;
+}
+
+.settings {
+  display: flex;
+  justify-content: end;
+  width: 50%;
+  margin-right: 2rem;
+}
+
+
+.btn {
+  background-color: white;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
