@@ -13,12 +13,13 @@ const User = () => {
   const navigate = useNavigate();
   const [stats, setStats] = useState(null);
   const user = JSON.parse(localStorage.getItem('user'));
+  const token = localStorage.getItem('token');
 
   const [loading, setLoading] = useState(false);
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    if (!user?.id) {
+    if (!user?.id || !token) {
       alert('Перезайдите в аккаунт <3');
     }
 
