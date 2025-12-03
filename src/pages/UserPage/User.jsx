@@ -46,7 +46,8 @@ const User = () => {
       .finally(() => setLoading(false));
   };
 
-  if (!stats || loading) return <p className={styles.load}>Loading...</p>;
+  if (!stats || loading)
+    return <p className={styles.load}>Loading...</p>;
 
   return (
     <div className={styles.userPage}>
@@ -70,23 +71,16 @@ const User = () => {
             v_color="value_red"
           />
           <MetricCard
-            label="Upcoming Events"
+            label="Events Attended"
             value={stats ? stats.attendedEvents : 0}
             icon={'/assets/attend.png'}
             colorClass="green"
             v_color="value_green"
           />
-          <MetricCard
-            label="Upcoming Events"
-            value={stats ? stats.totalSpent : 0}
-            icon={'/assets/total.png'}
-            colorClass="blue"
-            v_color="value_blue"
-          />
         </div>
 
         <div className={styles.upcomning}>
-          <h3 className={styles.title}>Upcomming Events</h3>
+          <h3 className={styles.title}>My Events</h3>
 
           <div className={styles.listEvents}>
             {events.length !== 0 ? (
