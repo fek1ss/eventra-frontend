@@ -58,7 +58,7 @@ const Header = () => {
           <a className={`${styles.iconLink} ${styles.searchIcon}`} href="#search">
             <IoMdSearch className={styles.icon} />
           </a>
-          <a className={styles.iconLink} href="#search">
+          <a className={styles.iconLink}>
             <IoMdPerson
               className={styles.icon}
               onClick={() => navigate('/profile')}

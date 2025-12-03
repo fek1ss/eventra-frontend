@@ -19,9 +19,11 @@ const User = () => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    if (!user?.id || !token) {
+    if (!user?.id) {
       alert('Перезайдите в аккаунт <3');
     }
+
+    if (!token) navigate('/login');
 
     const fetchData = async () => {
       try {
