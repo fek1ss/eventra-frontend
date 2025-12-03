@@ -3,11 +3,11 @@ import { FaRegClock } from 'react-icons/fa';
 import { IoMdPin } from 'react-icons/io';
 import { FaDollarSign } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { MdGroups } from "react-icons/md";
-
+import { MdGroups } from 'react-icons/md';
 
 const AboutEvent = ({ event, setModal }) => {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem('user'));
 
   const handleClick = () => {
     navigate(`/admin/${event.id}`, { state: event });
@@ -16,12 +16,11 @@ const AboutEvent = ({ event, setModal }) => {
   return (
     <div className={styles.about}>
       <div className={styles.wrapper}>
-        <p
-          className={styles.edit}
-          onClick={handleClick}
-        >
-          edit
-        </p>
+        {user?.role === 'admin' && (
+          <p className={styles.edit} onClick={handleClick}>
+            edit
+          </p>
+        )}
         <h1 className={styles.title}>About This Event</h1>
         <p className={styles.desc}>{event.description}</p>
 
