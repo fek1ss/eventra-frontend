@@ -1,9 +1,9 @@
 import styles from './styles.module.css';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { formatDate } from '../utils/formatDate';
 import { useNavigate } from 'react-router-dom';
 import { deleteEvent } from '../../services/eventService';
+import { formatDate } from '../../utils/formatDate';
 
 const EventCard = ({ event, loadEvents, userEvent = false }) => {
   const navigate = useNavigate();

@@ -3,7 +3,6 @@ import Header from './../../components/loyaut/Header/Header';
 import HeroEvent from './../../components/loyaut/HeroEvent/HeroEvent';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AboutEvent from './../../components/loyaut/AboutEvent/AboutEvent';
-import Footer from './../../components/loyaut/Footer/Footer';
 import Modal from './../../components/Modal/Modal';
 import { useEffect, useState } from 'react';
 
@@ -35,7 +34,6 @@ const Event = () => {
           />
         )}
       </div>
-      <Footer />
     </div>
   );
 };

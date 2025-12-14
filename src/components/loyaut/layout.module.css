@@ -1,0 +1,11 @@
+.main_layout {
+  display: flex;
+  flex-direction: column; /* Header сверху, main растягивается, Footer снизу */
+  min-height: 100vh;      /* занять всю высоту экрана */
+}
+
+.main_content {
+  flex: 1;                /* основной контент растягивается, чтобы Footer был внизу */
+  display: flex;
+  flex-direction: column;
+}

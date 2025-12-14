@@ -8,10 +8,8 @@ import Modal from '../../components/Modal/Modal';
 const Home = () => {
   return (
     <div className={styles.home}>
-      <Header />
       <Hero />
       <ListCards />
-      <Footer />
     </div>
   );
 };

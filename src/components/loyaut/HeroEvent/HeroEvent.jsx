@@ -2,8 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.css';
 import { FaCalendarAlt } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { formatDate } from './../../utils/formatDate';
 import { IoIosArrowBack } from 'react-icons/io';
+import { formatDate } from '../../../utils/formatDate';
 
 const HeroEvent = ({event}) => {
   const navigate = useNavigate('/')
