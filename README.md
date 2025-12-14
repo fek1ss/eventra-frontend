@@ -1,16 +1,95 @@
-# React + Vite
+Eventra — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Eventra is a student—run platform where you can view and post university events in one place.
 
-Currently, two official plugins are available:
+The project was created as a real product for students and focuses on user-friendliness, user scenarios, and API interaction.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+### 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Registration & Login
 
-## Expanding the ESLint configuration
+- Role-based UI (Admin / User)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Events list with search and filtering
+
+- Event registration
+
+- Admin panel:
+
+  - Create events
+
+  - Update events
+
+  - Delete events
+
+- Skeleton loading for better UX
+
+- Responsive design (mobile-friendly)
+
+### 🎨Frontend Focus
+
+This project was built with a strong focus on frontend development:
+
+ - UI logic based on user roles
+
+- API interaction and error handling
+
+- Skeleton loading to avoid layout shifts during data fetching
+
+- Clean component structure and readable code
+
+- Adaptive layout for mobile devices
+
+### 🛠 Tech Stack
+
+- React
+
+- Vite
+
+- JavaScript (ES6+)
+
+- CSS 
+- Vercel (deploy)
+
+- Fetch API
+
+- ESLint
+
+### 📦 Getting Started
+
+**To run the project locally:**
+
+```
+  npm install
+  npm run dev 
+```
+
+
+**The app will be available at:**
+
+  *http://localhost:5173*
+
+
+
+### 📌 UX Improvements
+
+- Skeleton loading during data fetching
+
+- Preventing layout shifts while loading content
+
+- Clear feedback for user actions
+
+### 🔮 Future Improvements
+
+- Pagination for events list
+
+- Improved error handling and notifications
+
+- UI animations for better user experience
+
+- Code splitting and performance optimizations
+
+### 👨‍💻 Author
+
+  **Frontend Developer: Damir (fek1ss)**
