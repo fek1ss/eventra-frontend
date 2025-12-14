@@ -65,6 +65,12 @@ This project was built with a strong focus on frontend development:
   npm run dev 
 ```
 
+**.env file:**
+
+```
+VITE_API_URL= production backend
+VITE_BASE_URL=local backend
+```
 
 **The app will be available at:**
 

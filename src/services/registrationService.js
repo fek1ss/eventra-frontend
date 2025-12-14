@@ -1,6 +1,10 @@
 import { getAuthHeaders, BASE_URL } from './api';
 
-// Зарегистрироваться на мероприятие
+/**
+ * Register the current user for an event
+ * Sends POST request with registration data
+ * Uses authentication headers to identify the user
+ */
 export const registerForEvent = async registrationData => {
   try {
     const res = await fetch(`${BASE_URL}/registration`, {
@@ -20,7 +24,11 @@ export const registerForEvent = async registrationData => {
   }
 };
 
-// Получить историю мероприятий пользователя
+/**
+ * Get all events a specific user is registered for
+ * Sends GET request to /registration/:userId
+ * Uses authentication headers to access user-specific data
+ */
 export const getUserEvents = async userId => {
   const res = await fetch(`${BASE_URL}/registration/${userId}`, {
     headers: getAuthHeaders(),

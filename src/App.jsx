@@ -6,7 +6,11 @@ import Admin from './pages/AdminPages/Admin';
 import Event from './pages/Event/Event';
 import User from './pages/UserPage/User';
 
+// Main application component
+// Handles global routing and role-based access to pages
 function App() {
+  // Retrieve user data from localStorage
+  // Used to control access to protected routes on the client side
   const user = JSON.parse(localStorage.getItem('user'));
 
   return (

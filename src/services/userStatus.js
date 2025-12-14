@@ -1,5 +1,10 @@
 import { BASE_URL } from './api';
 
+/**
+ * Fetch user statistics by user ID
+ * Sends a GET request to /users/:user_id/stats
+ * Returns user statistics data or throws an error if request fails
+ */
 export const userStatus = async user_id => {
   try {
     const res = await fetch(

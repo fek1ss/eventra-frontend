@@ -1,14 +1,13 @@
 import { getAuthHeaders, BASE_URL } from './api';
 
-// let url = `${BASE_URL}/events`;
-// if (category) url += `?category=${encodeURIComponent(category)}`;
-// const res = await fetch(url, { headers: getAuthHeaders() });
-// return res.json();
-// Получить все мероприятия (с фильтром по категории)
+/**
+ * Fetch all events from the backend
+ * Supports optional filtering by category and organization
+ * Returns an empty array if an error occurs
+ */
 export const getEvents = async (category = '', organization = '') => {
   try {
     let url = `${BASE_URL}`;
-    // Формируем query string
     const params = new URLSearchParams();
     if (category) params.append('category', category);
     if (organization) params.append('organization', organization);
@@ -24,7 +23,11 @@ export const getEvents = async (category = '', organization = '') => {
   }
 };
 
-// Получить мероприятие по id
+
+/**
+ * Fetch a single event by its ID
+ * Uses authentication headers to access protected resources if needed
+ */
 export const getEventById = async (id) => {
   const res = await fetch(`${BASE_URL}/events/${id}`, {
     headers: getAuthHeaders(),
@@ -32,7 +35,12 @@ export const getEventById = async (id) => {
   return res.json();
 };
 
-// Создать мероприятие (только админ)
+
+/**
+ * Create a new event
+ * Sends FormData to backend (supports files, images)
+ * Handles token expiration and notifies user
+ */
 export const createEvent = async eventData => {
   try {
     const formData = new FormData();
@@ -54,7 +62,6 @@ export const createEvent = async eventData => {
       const errorMessage =
         data.message || 'Произошла ошибка при создании мероприятия';
 
-      // 3. ✨ Специальная проверка на просроченный токен (401 и текст сообщения)
       if (res.status === 401 && errorMessage === 'Invalid token') {
         localStorage.removeItem('token');
         alert(
@@ -71,7 +78,11 @@ export const createEvent = async eventData => {
   }
 };
 
-// Обновить мероприятие
+
+/**
+ * Update an existing event by ID
+ * Sends FormData to backend and includes auth token
+ */
 export const updateEvent = async (id, eventData) => {
   const formData = new FormData();
   for (const key in eventData) {
@@ -89,7 +100,11 @@ export const updateEvent = async (id, eventData) => {
   return res.json();
 };
 
-// Удалить мероприятие
+
+/**
+ * Delete an event by ID
+ * Requires authentication
+ */
 export const deleteEvent = async id => {
   const res = await fetch(`${BASE_URL}/events/${id}`, {
     method: 'DELETE',

@@ -1,5 +1,11 @@
 import { BASE_URL } from './api';
 
+
+/**
+ * Registers a new user
+ * Sends POST request to /auth/register endpoint with user data
+ * Stores JWT token in localStorage on success
+ */
 export const registerUser = async (
   first_name,
   last_name,
@@ -30,6 +36,11 @@ export const registerUser = async (
   }
 };
 
+/**
+ * Logs in an existing user
+ * Sends POST request to /auth/login with email and password
+ * Stores JWT token and user data in localStorage
+ */
 export const loginUser = async (email, password) => {
   try {
     const res = await fetch(`${BASE_URL}/auth/login`, {
@@ -50,6 +61,10 @@ export const loginUser = async (email, password) => {
   }
 };
 
+/**
+ * Logs out the current user
+ * Removes JWT token and user info from localStorage
+ */
 export const logoutUser = () => {
   localStorage.removeItem('token');
   localStorage.removeItem('user');
